@@ -1,2 +1,4 @@
 
-<section ng-view ng-controller="AppController"></section>
+<header id="toolbar" ng-controller="ToolbarController" ng-bind-template="{{ title }}"></header>
+
+<section id="wrapper" ng-controller="AppController" ng-view></section>

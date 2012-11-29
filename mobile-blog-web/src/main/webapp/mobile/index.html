@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="cleartype" content="on">
 
     <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/touch/apple-touch-icon-144x144-precomposed.png">-->
@@ -29,9 +29,9 @@
 
 <section ng-include="index"></section>
 
-
 <!-- JavaScript -->
-<script type="text/javascript" src="../app/js/lib/zepto.min.js"></script>
+<!--<script type="text/javascript" src="../app/js/lib/zepto.min.js"></script>-->
+<script type="text/javascript" src="../app/js/lib/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="js/helper.js"></script>
 <script type="text/javascript" src="js/lib/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/lib/iscroll-min.js"></script>
@@ -49,6 +49,8 @@
 <script type="text/javascript" src="../app/js/controllers/BlogPostControllers.js"></script>
 <script type="text/javascript" src="../app/js/controllers/CommentControllers.js"></script>
 
+<script type="text/javascript" src="js/controllers/MobileControllers.js"></script>
+
 <!-- services -->
 <script type="text/javascript" src="../app/js/services/BlogPostServices.js"></script>
 <script type="text/javascript" src="../app/js/services/CommentServices.js"></script>
@@ -56,6 +58,9 @@
 
 <!-- filters -->
 <script type="text/javascript" src="../app/js/filters/Filters.js"></script>
+
+<!-- directives -->
+<script type="text/javascript" src="js/directives/MobileDirectives.js"></script>
 
 </body>
 </html>

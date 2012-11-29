@@ -10,30 +10,6 @@
    Base styles: opinionated defaults
    ========================================================================== */
 
-html,
-button,
-input,
-select,
-textarea {
-    color: #222;
-}
-
-body {
-    font-size: 1em;
-    line-height: 1.4;
-}
-
-a {
-    color: #00e;
-}
-
-a:visited {
-    color: #551a8b;
-}
-
-a:hover {
-    color: #06e;
-}
 
 /*
  * Remove the gap between images and the bottom of their containers: h5bp.com/i/440
@@ -176,41 +152,95 @@ textarea[contenteditable] {
     visibility: hidden;
 }
 
-/**
- * Clearfix helper
- * Used to contain floats: h5bp.com/q
- */
 
-.clearfix:before,
-.clearfix:after {
-    content: "";
-    display: table;
+
+
+
+
+
+#toolbar {
+    position:absolute; z-index:2;
+    top:0; left:0;
+    width:100%;
+    height:45px;
+    line-height:45px;
+
+    background-image: -webkit-linear-gradient(top, white, #e4e4e4);
+    background-image: -o-linear-gradient(top, white, #e4e4e4);
+    background-image: linear-gradient(to bottom, white, #e4e4e4);
+
+    border-bottom: 1px solid #D4D4D4;
+
+    padding:0;
+    font-size:20px;
+    text-align:center;
+    font-weight: bold;
+    color: #777;
+    text-shadow: 0 1px 0 white;
 }
 
-.clearfix:after {
-    clear: both;
+
+#wrapper {
+    position:absolute; z-index:1;
+    top:45px; bottom: 0; left:0;
+    width:100%;
+    background:#aaa;
+    overflow:auto;
 }
 
-/*
- * For IE 6/7 only
- * Include this rule to trigger hasLayout and contain floats.
- */
-
-.clearfix {
-    *zoom: 1;
+.scroller {
+    position:absolute; z-index:1;
+    -webkit-touch-callout:none;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    width:100%;
+    padding:0;
 }
 
-/* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   Theses examples override the primary ('mobile first') styles.
-   Modify as content requires.
-   ========================================================================== */
-
-@media only screen and (min-width: 800px) {
-    /* Style adjustments for viewports that meet the condition */
+.scroller ul {
+    list-style:none;
+    padding:0;
+    margin:0;
+    width:100%;
+    text-align:left;
 }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
-only screen and (min-resolution: 144dpi) {
-    /* Style adjustments for viewports that meet the condition */
+.scroller li .listItemTitle {
+    display: block;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.scroller li .listItemPreview {
+    display: block;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #444;
+}
+
+.scroller li {
+    border-bottom:1px solid #ccc;
+    /*border-top:1px solid #fff;*/
+    background-color:#fafafa;
+}
+
+.scroller li a {
+    display: block;
+    padding: 5px 10px;
+    color: #333;
+}
+
+.scroller li a:hover {
+    text-decoration: none;
+    /*background: #e2e2e2;*/
+}
+
+.scroller li:active {
+    background: #e2e2e2;
+}
+
+#blogPostContainer {
+    padding: 10px;
+    background-color:#fafafa;
 }

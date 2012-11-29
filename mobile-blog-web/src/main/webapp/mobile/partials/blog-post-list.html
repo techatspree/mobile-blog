@@ -1,1 +1,11 @@
-blog post list
+
+<div scroll class="scroller">
+    <ul id="blogPostList" ng-controller="BlogPostListController">
+        <li ng-repeat="post in blogPostService.blogPosts">
+            <a href="#/post/{{ post.id }}" class="nocallout">
+                <span class="listItemTitle">{{ post.title }}</span>
+                <span class="listItemPreview">{{ post.content | blogPostPreview }}</span>
+            </a>
+        </li>
+    </ul>
+</div>

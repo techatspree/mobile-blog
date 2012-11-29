@@ -11,11 +11,15 @@ angular.module('App', [
     'AuthenticationControllers',
     'RegistrationControllers',
 
+    'MobileControllers',
+
     'BlogPostServices',
     'CommentServices',
     'UserServices',
 
-    'Filters'
+    'Filters',
+
+    'MobileDirectives'
 ]).
 
     config([
@@ -45,31 +49,31 @@ angular.module('App', [
 //                authRequired: true
 //            }).
 
-//
-//        /**
-//         * Blog post route
-//         *
-//         * Controllers: BlogPostController, AddCommentController
-//         */
-//            when('/post/:blogPostId', {
-//                templateUrl: 'partials/blog-post.html'
-////                    resolve: {
-////                         blogPost: ['BlogPostService',
-////                             function($route, BlogPostService) {
-////                                 return BlogPostService.fetchBlogPost(
-////                                     $route.current.params.blogPostId
-////                                 );
-////                             }
-////                         ],
-////                         commentList: ['CommentService',
-////                             function($route, CommentService) {
-////                                return CommentService.fetchComments(
-////                                    $route.current.params.blogPostId
-////                                );
-////                             }
-////                         ]
-////                    }
-//            }).
+
+        /**
+         * Blog post route
+         *
+         * Controllers: BlogPostController, AddCommentController
+         */
+            when('/post/:blogPostId', {
+                templateUrl: 'partials/blog-post.html'
+//                    resolve: {
+//                         blogPost: ['BlogPostService',
+//                             function($route, BlogPostService) {
+//                                 return BlogPostService.fetchBlogPost(
+//                                     $route.current.params.blogPostId
+//                                 );
+//                             }
+//                         ],
+//                         commentList: ['CommentService',
+//                             function($route, CommentService) {
+//                                return CommentService.fetchComments(
+//                                    $route.current.params.blogPostId
+//                                );
+//                             }
+//                         ]
+//                    }
+            }).
 //
 //
 //        /**
