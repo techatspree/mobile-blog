@@ -13,10 +13,10 @@ describe('UserServices', function() {
 
         beforeEach(inject(function(_$httpBackend_) {
             $httpBackend = _$httpBackend_;
-            $httpBackend.expectPOST('rest/user').respond(data);
+            $httpBackend.expectPOST('../rest/user').respond(data);
         }));
 
-        it('should send post request to "rest/user"', inject(function(UserService) {
+        it('should send post request to "../rest/user"', inject(function(UserService) {
             UserService.register(data).
                 success(function(data) {
                     responseData = data;

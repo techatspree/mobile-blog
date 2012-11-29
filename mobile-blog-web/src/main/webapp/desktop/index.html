@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="App">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <title>AngularJS - Blog-Demo</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+
+    <link rel="shortcut icon" href="../app/img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+<section ng-include="index"></section>
+
+
+<!-- JavaScript -->
+<script type="text/javascript" src="../app/js/lib/zepto.min.js"></script>
+
+<!-- angular.js -->
+<script type="text/javascript" src="../app/js/lib/angular/angular.min.js"></script>
+<script type="text/javascript" src="../app/js/lib/angular/angular-resource.min.js"></script>
+
+<!-- app -->
+<script type="text/javascript" src="App.js"></script>
+
+<!-- controller -->
+<script type="text/javascript" src="../app/js/controllers/AuthenticationControllers.js"></script>
+<script type="text/javascript" src="../app/js/controllers/RegistrationControllers.js"></script>
+<script type="text/javascript" src="../app/js/controllers/BlogPostControllers.js"></script>
+<script type="text/javascript" src="../app/js/controllers/CommentControllers.js"></script>
+
+<!-- services -->
+<script type="text/javascript" src="../app/js/services/BlogPostServices.js"></script>
+<script type="text/javascript" src="../app/js/services/CommentServices.js"></script>
+<script type="text/javascript" src="../app/js/services/UserServices.js"></script>
+
+<!-- filters -->
+<script type="text/javascript" src="../app/js/filters/Filters.js"></script>
+
+</body>
+
+</html>

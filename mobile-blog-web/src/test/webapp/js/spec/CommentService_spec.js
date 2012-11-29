@@ -13,10 +13,10 @@ describe('CommentService', function() {
 
         beforeEach(inject(function(_$httpBackend_) {
             $httpBackend = _$httpBackend_;
-            $httpBackend.expectGET('rest/blog/xyz/comment').respond(data);
+            $httpBackend.expectGET('../rest/blog/xyz/comment').respond(data);
         }));
 
-        it('should send get request to "rest/blog/xyz/comment"', inject(function(CommentService) {
+        it('should send get request to "../rest/blog/xyz/comment"', inject(function(CommentService) {
             CommentService.fetchComments('xyz').
                 success(function(data) {
                     responseData = data;

@@ -29,7 +29,7 @@ public class E2ETest {
     @Test
     public void runE2ETest() {
         WebDriver driver = new FirefoxDriver();
-        driver.get("http://localhost:8180/blog/e2e-test/runner.html");
+        driver.get("http://localhost:8180/blog/desktop/e2e-test/runner.html");
 
         ExpectedCondition e = new ExpectedCondition<Boolean>() {
             public Boolean apply(WebDriver d) {

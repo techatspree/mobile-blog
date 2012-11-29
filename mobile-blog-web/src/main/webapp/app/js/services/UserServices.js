@@ -26,7 +26,7 @@ angular.module('UserServices', []).
                  * @return {*}
                  */
                 login: function(credentials) {
-                    return  $http.post('rest/authentication', credentials, restConfig).
+                    return  $http.post('../rest/authentication', credentials, restConfig).
                                 success(function(data) {
                                     sessionStorage.setItem('user', angular.toJson(data));
                                     loggedIn = true;
@@ -60,7 +60,7 @@ angular.module('UserServices', []).
                  * @return {*}
                  */
                 register: function(userData) {
-                    return  $http.post('rest/user', userData, restConfig).
+                    return  $http.post('../rest/user', userData, restConfig).
                                 success(function(data) {
                                     return data;
                                 }).

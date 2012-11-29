@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="App">
+<head>
+    <meta charset="utf-8">
+    <title>AngularJS - Blog-Demo</title>
+    <meta name="description" content="">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="cleartype" content="on">
+
+    <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/touch/apple-touch-icon-144x144-precomposed.png">-->
+    <!--<link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/touch/apple-touch-icon-114x114-precomposed.png">-->
+    <!--<link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/touch/apple-touch-icon-72x72-precomposed.png">-->
+    <!--<link rel="apple-touch-icon-precomposed" href="img/touch/apple-touch-icon-57x57-precomposed.png">-->
+    <!--<link rel="shortcut icon" href="img/touch/apple-touch-icon.png">-->
+
+    <link rel="shortcut icon" href="../app/img/favicon.ico" type="image/x-icon">
+
+    <!-- For iOS web apps. Delete if not needed. https://github.com/h5bp/mobile-boilerplate/issues/94 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+</head>
+<body>
+
+<section ng-include="index"></section>
+
+
+<!-- JavaScript -->
+<script type="text/javascript" src="../app/js/lib/zepto.min.js"></script>
+<script type="text/javascript" src="js/helper.js"></script>
+<script type="text/javascript" src="js/lib/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/lib/iscroll-min.js"></script>
+
+<!-- angular.js -->
+<script type="text/javascript" src="../app/js/lib/angular/angular.min.js"></script>
+<script type="text/javascript" src="../app/js/lib/angular/angular-resource.min.js"></script>
+
+<!-- app -->
+<script type="text/javascript" src="App.js"></script>
+
+<!-- controller -->
+<script type="text/javascript" src="../app/js/controllers/AuthenticationControllers.js"></script>
+<script type="text/javascript" src="../app/js/controllers/RegistrationControllers.js"></script>
+<script type="text/javascript" src="../app/js/controllers/BlogPostControllers.js"></script>
+<script type="text/javascript" src="../app/js/controllers/CommentControllers.js"></script>
+
+<!-- services -->
+<script type="text/javascript" src="../app/js/services/BlogPostServices.js"></script>
+<script type="text/javascript" src="../app/js/services/CommentServices.js"></script>
+<script type="text/javascript" src="../app/js/services/UserServices.js"></script>
+
+<!-- filters -->
+<script type="text/javascript" src="../app/js/filters/Filters.js"></script>
+
+</body>
+</html>

@@ -13,10 +13,10 @@ describe('BlogPostService', function() {
 
         beforeEach(inject(function(_$httpBackend_) {
             $httpBackend = _$httpBackend_;
-            $httpBackend.expectGET('rest/blog').respond(data);
+            $httpBackend.expectGET('../rest/blog').respond(data);
         }));
 
-        it('should send get request to "rest/blog"', inject(function(BlogPostService) {
+        it('should send get request to "../rest/blog"', inject(function(BlogPostService) {
             BlogPostService.fetchBlogPosts().
                 success(function(data) {
                     responseData = data;
@@ -36,10 +36,10 @@ describe('BlogPostService', function() {
 
         beforeEach(inject(function(_$httpBackend_) {
             $httpBackend = _$httpBackend_;
-            $httpBackend.expectGET('rest/blog/xyz').respond(data);
+            $httpBackend.expectGET('../rest/blog/xyz').respond(data);
         }));
 
-        it('should send get request to "rest/blog/xyz"', inject(function(BlogPostService) {
+        it('should send get request to "../rest/blog/xyz"', inject(function(BlogPostService) {
             BlogPostService.fetchBlogPost('xyz').
                 success(function(data) {
                     responseData = data;

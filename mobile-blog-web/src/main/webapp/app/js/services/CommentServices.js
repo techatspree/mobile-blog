@@ -12,7 +12,7 @@ angular.module('CommentServices', []).
         '$http',
 
         function($http) {
-            var restUrl = 'rest/blog/';
+            var restUrl = '../rest/blog/';
 
             return {
 

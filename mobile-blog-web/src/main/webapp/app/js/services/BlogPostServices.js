@@ -14,7 +14,7 @@ angular.module('BlogPostServices', []).
         '$http',
 
         function($http) {
-            var restUrl = 'rest/blog';
+            var restUrl = '../rest/blog';
 
             return {
 
