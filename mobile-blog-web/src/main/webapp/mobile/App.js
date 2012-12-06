@@ -131,6 +131,8 @@ angular.module('App', [
 //        $rootScope.navigation = 'partials/navigation.html';
 
 //        $rootScope.addCommentForm = 'partials/add-comment-form.html';
+
+
     }).
 
     controller('AppController', [

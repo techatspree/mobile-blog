@@ -10,6 +10,10 @@ angular.module('MobileDirectives', ['MobileControllers']).
                 document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 
                 var scrollContainer = new iScroll(element[0], {});
+
+                window.onorientationchange = function() {
+                    setTimeout(function () { scrollContainer.refresh(); }, 200);
+                }
             }
         }
     }]);
