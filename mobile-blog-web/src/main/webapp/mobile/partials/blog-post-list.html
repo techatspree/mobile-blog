@@ -1,13 +1,13 @@
 
-<div id="wrapper">
-    <div scroll class="scroller">
-        <ul id="blogPostList" ng-controller="BlogPostListController">
-            <li ng-repeat="post in blogPostService.blogPosts">
-                <a href="#/post/{{ post.id }}" class="nocallout">
-                    <span class="listItemTitle">{{ post.title }}</span>
-                    <span class="listItemPreview">{{ post.content | blogPostPreview }}</span>
-                </a>
-            </li>
-        </ul>
-    </div>
+<header id="toolbar" ng-controller="ToolbarController" ng-bind-template="{{ title }}"></header>
+
+<div id="wrapper" class="scrollContainer" scroll-container>
+    <ul id="blogPostList" ng-controller="BlogPostListController">
+        <li ng-repeat="post in blogPostService.blogPosts" on-tap>
+            <a href="#/post/{{ post.id }}" class="nocallout">
+                <span class="listItemTitle">{{ post.id }} {{ post.title }}</span>
+                <span class="listItemPreview">{{ post.content | blogPostPreview }}</span>
+            </a>
+        </li>
+    </ul>
 </div>

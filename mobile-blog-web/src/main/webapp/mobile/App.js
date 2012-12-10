@@ -34,9 +34,14 @@ angular.module('App', [
          *
          * Controllers: BlogPostListController
          */
-            when('/', {
-                templateUrl: 'partials/blog-post-list.html'
-            }).
+        when('/', {
+            templateUrl: 'partials/blog-post-list.html',
+            resolve: {
+                blogPosts: ['BlogPostService', function(BlogPostService) {
+                    return BlogPostService.fetchBlogPosts();
+                }]
+            }
+        }).
 
 
 //        /**
@@ -55,25 +60,25 @@ angular.module('App', [
          *
          * Controllers: BlogPostController, AddCommentController
          */
-            when('/post/:blogPostId', {
-                templateUrl: 'partials/blog-post.html'
-//                    resolve: {
-//                         blogPost: ['BlogPostService',
-//                             function($route, BlogPostService) {
-//                                 return BlogPostService.fetchBlogPost(
-//                                     $route.current.params.blogPostId
-//                                 );
-//                             }
-//                         ],
-//                         commentList: ['CommentService',
-//                             function($route, CommentService) {
-//                                return CommentService.fetchComments(
-//                                    $route.current.params.blogPostId
-//                                );
-//                             }
-//                         ]
-//                    }
-            }).
+        when('/post/:blogPostId', {
+            templateUrl: 'partials/blog-post.html',
+                resolve: {
+                     blogPost: ['$route', 'BlogPostService', '$routeParams',
+                         function($route, BlogPostService, $routeParams) {
+                             return BlogPostService.fetchBlogPost(
+                                 $route.current.params.blogPostId
+                             );
+                         }
+                     ],
+                     commentList: ['$route', 'CommentService',
+                         function($route, CommentService) {
+                            return CommentService.fetchComments(
+                                $route.current.params.blogPostId
+                            );
+                         }
+                     ]
+                }
+        }).
 //
 //
 //        /**
@@ -99,23 +104,23 @@ angular.module('App', [
         /**
          * HTTP 401 Unauthorized
          */
-            when('/401', { template: '401' }).
+//            when('/401', { template: '401' }).
 
 
         /**
          * HTTP 404 Not Found
          */
-            when('/404', { template: '404' })
+            //            when('/404', { template: '404' }).
 
 
         /**
          * Redirect to "/404" when no other route definition is matched
          */
-            .otherwise({ redirectTo: '/404' });
+            otherwise({ redirectTo: '/404' });
     }
 ]).
 
-    run(function($rootScope, $location, UserService) {
+    run(function($rootScope, $location, UserService, $window) {
         $rootScope.$on('$routeChangeStart', function(event, next, current) {
             var authRequired = next.$route && next.$route.authRequired;
             if (authRequired !== undefined) {
@@ -131,8 +136,6 @@ angular.module('App', [
 //        $rootScope.navigation = 'partials/navigation.html';
 
 //        $rootScope.addCommentForm = 'partials/add-comment-form.html';
-
-
     }).
 
     controller('AppController', [

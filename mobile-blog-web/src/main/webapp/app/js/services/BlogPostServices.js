@@ -12,11 +12,17 @@ angular.module('BlogPostServices', []).
      */
     factory('BlogPostService', [
         '$http',
+        '$rootScope',
 
-        function($http) {
+        function($http, $rootScope) {
             var restUrl = '../rest/blog';
 
             return {
+
+                /**
+                 * Blog post
+                 */
+                blogPost: {},
 
                 /**
                  * Blog posts
@@ -46,9 +52,10 @@ angular.module('BlogPostServices', []).
                  * @return {*}
                  */
                 fetchBlogPost: function(blogPostId) {
+                    var self = this;
                     return  $http.get(restUrl + '/' + blogPostId).
                                 success(function(data) {
-                                    return data;
+                                    return self.blogPost = data;
                                 }).
                                 error(function(data) {
                                     return data;

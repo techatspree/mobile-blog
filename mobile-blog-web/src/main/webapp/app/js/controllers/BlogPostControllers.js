@@ -17,7 +17,6 @@ angular.module('BlogPostControllers', [
         'BlogPostService',
 
         function($scope, BlogPostService) {
-            BlogPostService.fetchBlogPosts();
             $scope.blogPostService = BlogPostService;
         }
     ]).
@@ -33,15 +32,7 @@ angular.module('BlogPostControllers', [
         'CommentService',
 
         function($scope, $routeParams, BlogPostService, CommentService) {
-            var blogPostId = $routeParams.blogPostId || undefined;
-
-            BlogPostService.fetchBlogPost(blogPostId).
-                success(function(data) {
-                    $scope.blogPost = data;
-                });
-
-            CommentService.fetchComments(blogPostId);
-
+            $scope.blogPost = BlogPostService.blogPost;
             $scope.commentService = CommentService;
         }
     ]).

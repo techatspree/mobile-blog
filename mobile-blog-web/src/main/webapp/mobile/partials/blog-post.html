@@ -1,8 +1,10 @@
 
-<div id="wrapper">
-    <div id="blogPostContainer" ng-controller="BlogPostController" scroll>
+<header id="toolbar" ng-controller="ToolbarController" ng-bind-template="{{ title }}"></header>
+
+<div id="wrapper" scroll-container>
+    <div id="blogPostContainer" ng-controller="BlogPostController">
         <div id="blogPost">
-            <h2>{{ blogPost.title }}</h2>
+            <h2>{{ blogPost.id }} {{ blogPost.title }}</h2>
             <h5>
                 {{ blogPost.author.firstname }} {{ blogPost.author.surname }} - {{ blogPost.created | date:'dd.MM.yyyy H:mm' }}
             </h5>
