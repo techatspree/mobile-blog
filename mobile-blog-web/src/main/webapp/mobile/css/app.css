@@ -42,13 +42,13 @@ textarea {
    ========================================================================== */
 
 
-/* iScroll elements */
+/* partials */
 #toolbar {
     position:absolute; z-index:2;
     top:0; left:0;
     width:100%;
-    height:45px;
-    line-height:45px;
+    height:46px;
+    line-height:46px;
     background: rgb(255,255,255);
     background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(224,224,224,1) 100%);
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(224,224,224,1)));
@@ -56,7 +56,7 @@ textarea {
     background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(224,224,224,1) 100%);
     background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(224,224,224,1) 100%);
     padding:0;
-    font-size:20px;
+    font-size:18px;
     text-align:center;
     font-weight: bold;
     color: #777;
@@ -65,7 +65,7 @@ textarea {
 
 #wrapper {
     position:absolute; z-index:1;
-    top:45px; bottom:0px; left:0;
+    top:46px; bottom:0px; left:0;
     width:100%;
     background:#aaa;
     overflow:auto;
@@ -73,7 +73,6 @@ textarea {
 
 .scrollContainer {
     position:absolute; z-index:1;
-    /*	-webkit-touch-callout:none;*/
     -webkit-tap-highlight-color:rgba(0,0,0,0);
     width:100%;
     padding:0;
@@ -122,30 +121,67 @@ textarea {
 
 
 
-
-
-#blogPostContainer {
-    padding: 10px;
-    background-color:#fafafa;
-}
-
-#blogPostContainer div {
-    width: 100%;
-}
-
-
-
-
-
-
-/* partial transition */
-
 .partial {
     width: 100%;
     height: 100%;
 }
 
+.content {
+    background: white;
+    min-height: 100%;
+    width: 100%;
+}
+.contentInner {
+    padding: 10px;
+}
 
+
+
+/* toolbar */
+#toolbar header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.headerInner {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 40%;
+    margin: auto;
+}
+
+
+#toolbar .btn {
+    position: relative;
+    margin: 8px 4px 0;
+    z-index: 1;
+}
+
+#toolbar .btn-left {
+    float: left;
+}
+
+#toolbar .btn-right {
+    float: right;
+}
+
+
+
+/* misc */
+
+.input-block-level {
+    display: block;
+    width: 100%;
+}
+
+
+
+
+/* partial transition */
 @-webkit-keyframes slideinfromright {
   /*from { -webkit-transform: translateX(100%); }*/
   from { -webkit-transform: translate3d(100%, 0, 0); }
@@ -174,28 +210,75 @@ textarea {
 .in, .out {
     position: absolute;
 }
+.in {
+    -webkit-transform: translateX(100%);
+}
 
 .slideinfromright {
-    -webkit-animation: "slideinfromright" 0.5s;
+    -webkit-animation: "slideinfromright" 0.4s;
 }
 .slideinfromleft {
-    -webkit-animation: "slideinfromleft" 0.5s;
+    -webkit-animation: "slideinfromleft" 0.4s;
 }
 
 .slideouttoleft {
-    -webkit-animation: "slideouttoleft" 0.5s;
+    -webkit-animation: "slideouttoleft" 0.4s;
 }
 .slideouttoright {
-    -webkit-animation: "slideouttoright" 0.5s;
+    -webkit-animation: "slideouttoright" 0.4s;
 }
 
 
 
+/* modal dialog */
+#modalOverlay {
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    margin:0;
+    padding:0;
+    background:#000;
+    opacity: 0.6;
+    -webkit-transition: opacity 0.3s ease-in;
+    z-index:101;
+}
+
+
+#modalDialog {
+    position: absolute;
+    left: 0;
+    top:0;
+    margin:0;
+    background: white;
+    border:2px solid #fff;
+    width: 200px;
+    text-align:center;
+    word-spacing:2px;
+    line-height:15px;
+    font-weight:bold;
+    font-size:13px;
+    color:#fff;
+    padding:10px;
+    opacity: 1;
+    z-index: 102;
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #7c9bc0), color-stop(2%, #416086), color-stop(100%, #293e56));
+    -webkit-border-radius:8px;
+    -webkit-box-shadow:-1px 2px 12px rgba(0, 0, 0, 0.91);
+    -webkit-transition: opacity 0.3s ease-in;
+}
 
 
 
-
-
+#alertDialog {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 100;
+}
 
 
 

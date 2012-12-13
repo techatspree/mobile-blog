@@ -1,0 +1,27 @@
+<div ng-controller="LoginController">
+    <div id="alertDialog" alert-dialog error="error" message="error" ng-show="show"></div>
+
+
+    <div id="toolbar" ng-controller="ToolbarController">
+        <header>
+            <span class="headerInner" ng-bind-template="Login"></span>
+        </header>
+
+        <div>
+            <button class="btn btn-left" ng-click="onBackBtnTap()">Back</button>
+            <button class="btn btn-right" ng-click="routeTo('/register')">Register</button>
+        </div>
+    </div>
+
+    <div id="wrapper" class="scrollContainer" scroll-container>
+        <div class="content">
+            <div class="contentInner">
+                <form ng-submit="loginSubmit(user)">
+                    <input type="text" id="inputUsername" class="input-block-level" placeholder="Username" ng-model="user.username">
+                    <input type="password" id="inputPassword" class="input-block-level" placeholder="Password" ng-model="user.password">
+                    <button type="submit" class="btn btn-large btn-block">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

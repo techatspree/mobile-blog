@@ -1,0 +1,30 @@
+
+<div ng-controller="LoginController">
+    <div id="toolbar" ng-controller="ToolbarController">
+        <header>
+            <span class="headerInner" ng-bind-template="Register"></span>
+        </header>
+
+        <div>
+            <button class="btn btn-left" ng-click="onBackBtnTap()">Back</button>
+        </div>
+    </div>
+
+    <div id="wrapper" class="scrollContainer" scroll-container>
+        <div class="content">
+            <div class="contentInner">
+                <form ng-submit="registerSubmit(user)">
+                    <input type="text" id="inputUsername" class="input-block-level" placeholder="Username" ng-model="user.username">
+                    <input type="password" id="inputPassword" class="input-block-level" placeholder="Password" ng-model="user.password">
+                    <input type="text" id="inputFirstname" class="input-block-level" placeholder="Firstname" ng-model="user.firstname">
+                    <input type="text" id="inputSurname" class="input-block-level" placeholder="Surname" ng-model="user.surname">
+                    <input type="email" id="inputEmail" class="input-block-level" placeholder="Email" ng-model="user.email">
+                    <input type="text" id="inputPhone" class="input-block-level" placeholder="Phone" ng-model="user.phone">
+
+                    <button type="submit" class="btn btn-large btn-block">Register</button>
+                </form>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

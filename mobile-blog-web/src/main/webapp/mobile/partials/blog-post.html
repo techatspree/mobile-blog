@@ -1,24 +1,43 @@
 
-<header id="toolbar" ng-controller="ToolbarController" ng-bind-template="{{ title }}"></header>
+<div ng-controller="BlogPostController">
+    <div id="toolbar" ng-controller="ToolbarController">
+        <header>
+            <span class="headerInner" ng-bind-template="{{ blogPost.title }}"></span>
+        </header>
 
-<div id="wrapper" scroll-container>
-    <div id="blogPostContainer" ng-controller="BlogPostController">
-        <div id="blogPost">
-            <h2>{{ blogPost.id }} {{ blogPost.title }}</h2>
-            <h5>
-                {{ blogPost.author.firstname }} {{ blogPost.author.surname }} - {{ blogPost.created | date:'dd.MM.yyyy H:mm' }}
-            </h5>
-            <p>{{ blogPost.content }}</p>
+        <div ng-switch="userService.isLoggedIn()">
+            <button class="btn btn-left" ng-click="onBackBtnTap()">Back</button>
+
+            <!-- user is not logged-in -->
+            <button class="btn btn-right" ng-click="routeTo('/login')" ng-switch-when="false">Login</button>
+
+            <!-- user is logged-in -->
+            <button class="btn btn-left" ng-click="onLogoutBtnTap()" ng-switch-when="true">Logout</button>
+            <button class="btn btn-right" ng-click="routeTo('/post/comment/add')" ng-switch-when="true">Add comment</button>
         </div>
+    </div>
 
-        <div id="commentsList">
-            <h3 ng-show="commentService.comments">Comments</h3>
+    <div id="wrapper" scroll-container>
+        <div class="content">
+            <div class="contentInner">
+                <div id="blogPost">
+                    <h2>{{ blogPost.id }} {{ blogPost.title }}</h2>
+                    <h5>
+                        {{ blogPost.author.firstname }} {{ blogPost.author.surname }} - {{ blogPost.created | date:'dd.MM.yyyy H:mm' }}
+                    </h5>
+                    <p>{{ blogPost.content }}</p>
+                </div>
 
-            <div class="comment" ng-repeat="comment in commentService.comments">
-                <p>{{ comment.content }}</p>
-                <p>
-                    -- {{ comment.author.firstname }} {{ comment.author.surname }}, {{ comment.created | date:'dd.MM.yyyy H:mm' }}
-                </p>
+                <div id="commentsList">
+                    <h3 ng-show="commentService.comments">Comments</h3>
+
+                    <div class="comment" ng-repeat="comment in commentService.comments">
+                        <p>{{ comment.content }}</p>
+                        <p>
+                            -- {{ comment.author.firstname }} {{ comment.author.surname }}, {{ comment.created | date:'dd.MM.yyyy H:mm' }}
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

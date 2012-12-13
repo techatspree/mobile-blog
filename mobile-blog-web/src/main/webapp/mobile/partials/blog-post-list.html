@@ -1,13 +1,30 @@
 
-<header id="toolbar" ng-controller="ToolbarController" ng-bind-template="{{ title }}"></header>
+<div ng-controller="BlogPostListController">
+    <div id="toolbar" ng-controller="ToolbarController">
+        <header>
+            <span class="headerInner" ng-bind-template="Mobile-Blog"></span>
+        </header>
 
-<div id="wrapper" class="scrollContainer" scroll-container>
-    <ul id="blogPostList" ng-controller="BlogPostListController">
-        <li ng-repeat="post in blogPostService.blogPosts" on-tap>
-            <a href="#/post/{{ post.id }}" class="nocallout">
-                <span class="listItemTitle">{{ post.id }} {{ post.title }}</span>
-                <span class="listItemPreview">{{ post.content | blogPostPreview }}</span>
-            </a>
-        </li>
-    </ul>
+        <div ng-switch="userService.isLoggedIn()">
+            <!-- user is not logged-in -->
+            <button class="btn btn-right" ng-click="routeTo('/login')" ng-switch-when="false">Login</button>
+
+            <!-- user is logged-in -->
+            <button class="btn btn-left" ng-click="onLogoutBtnTap()" ng-switch-when="true">Logout</button>
+            <button class="btn btn-right" ng-click="routeTo('/post/add')" ng-switch-when="true">Add post</button>
+        </div>
+    </div>
+
+    <div id="wrapper" class="scrollContainer" scroll-container>
+        <div class="content">
+            <ul id="blogPostList">
+                <li ng-repeat="post in blogPostService.blogPosts" pressed>
+                    <a href="#/post/{{ post.id }}" class="nocallout">
+                        <span class="listItemTitle">{{ post.id }} {{ post.title }}</span>
+                        <span class="listItemPreview">{{ post.content | blogPostPreview }}</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>

@@ -26,7 +26,9 @@ angular.module('AuthenticationControllers', ['UserServices']).
                         $location.url('/');
                     }).
                     error(function() {
-                        $scope.error = 'Login failed!';
+                        $scope.error = {};
+                        $scope.error.title = 'Login';
+                        $scope.error.text  = 'Login failed!';
                     });
             }
         }
