@@ -12,7 +12,10 @@ angular.module('UserServices', []).
 
         function($http) {
             var restConfig = {
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' }
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+                    'Cache-Control': 'no-cache'
+                }
             };
 
             var loggedIn = (sessionStorage.getItem('user')) ? true : false;

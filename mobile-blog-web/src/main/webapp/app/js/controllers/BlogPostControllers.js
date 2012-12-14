@@ -53,12 +53,13 @@ angular.module('BlogPostControllers', [
 
                 if (blogPost) {
                     blogPost.author = {};
-                    blogPost.author.id = user.id || undefined;
+                    blogPost.author.id = user.id || null;
                 }
 
                 BlogPostService.addBlogPost(blogPost).
                     success(function() {
-                        $location.url('/');
+//                        $location.url('/');
+                        history.back();
                     });
             };
         }

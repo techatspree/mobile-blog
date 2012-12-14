@@ -11,15 +11,13 @@ angular.module('App', [
     'AuthenticationControllers',
     'RegistrationControllers',
 
-    'MobileControllers',
-
     'BlogPostServices',
     'CommentServices',
     'UserServices',
 
     'Filters',
 
-    'MobileDirectives'
+    'MobileAppModule'
 ]).
 
     config([
@@ -55,6 +53,8 @@ angular.module('App', [
             }).
 
 
+
+
             /**
              * Blog post route
              *
@@ -80,6 +80,16 @@ angular.module('App', [
                     }
             }).
 
+
+            /**
+             * Add comment route
+             *
+             * Controllers: AddCommentController
+             */
+            when('/post/:blogPostId/comment/add', {
+                templateUrl: 'partials/add-comment-form.html',
+                authRequired: true
+            }).
 
             /**
              * Login route
@@ -131,15 +141,6 @@ angular.module('App', [
         });
 
         $rootScope.index      = 'partials/index.html';
-
-
-        var ua = navigator.userAgent.toLowerCase();
-        $rootScope.device = (ua.indexOf("android")) ? 'android' : 'ios';
-
-        // fast buttons
-        $window.addEventListener('load', function() {
-            new FastClick(document.body);
-        }, false);
     }).
 
     controller('AppController', [

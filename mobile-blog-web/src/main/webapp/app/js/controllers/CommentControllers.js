@@ -17,16 +17,18 @@ angular.module('CommentControllers', ['CommentServices', 'UserServices']).
         function($scope, $routeParams, CommentService, UserService) {
             $scope.addCommentSubmit = function(comment) {
                 var user = UserService.getUser();
-                var blogPostId = $routeParams.blogPostId || undefined;
+                var blogPostId = $routeParams.blogPostId || null;
 
                 if (comment) {
                     comment.author = {};
-                    comment.author.id = user.id || undefined;
+                    comment.author.id = user.id || null;
                 }
+
+                console.log(comment);
 
                 CommentService.addComment(comment, blogPostId).
                     success(function() {
-                        $scope.comment = undefined;
+                        $scope.comment = null;
                     });
             };
         }

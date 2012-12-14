@@ -7,24 +7,30 @@
 
         <div ng-switch="userService.isLoggedIn()">
             <!-- user is not logged-in -->
-            <button class="btn btn-right" ng-click="routeTo('/login')" ng-switch-when="false">Login</button>
+            <div ng-switch-when="false">
+                <button class="btn btn-right" ng-click="routeTo('/login')">Login</button>
+            </div>
 
             <!-- user is logged-in -->
-            <button class="btn btn-left" ng-click="onLogoutBtnTap()" ng-switch-when="true">Logout</button>
-            <button class="btn btn-right" ng-click="routeTo('/post/add')" ng-switch-when="true">Add post</button>
+            <div ng-switch-when="true">
+                <button class="btn btn-left" ng-click="onLogoutBtnTap()">Logout</button>
+                <button class="btn btn-right" ng-click="routeTo('/post/add')">Add post</button>
+            </div>
         </div>
     </div>
 
     <div id="wrapper" class="scrollContainer" scroll-container>
         <div class="content">
-            <ul id="blogPostList">
-                <li ng-repeat="post in blogPostService.blogPosts" pressed>
-                    <a href="#/post/{{ post.id }}" class="nocallout">
-                        <span class="listItemTitle">{{ post.id }} {{ post.title }}</span>
-                        <span class="listItemPreview">{{ post.content | blogPostPreview }}</span>
-                    </a>
-                </li>
-            </ul>
+            <div class="inner">
+                <ul id="blogPostList">
+                    <li ng-repeat="post in blogPostService.blogPosts" pressed>
+                        <a href="#/post/{{ post.id }}" class="nocallout">
+                            <span class="listItemTitle">{{ post.id }} {{ post.title }}</span>
+                            <span class="listItemPreview">{{ post.content | blogPostPreview }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>

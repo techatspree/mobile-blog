@@ -1,0 +1,54 @@
+/**
+ * Mobile UI color theme
+ */
+
+/* partials */
+#toolbar {
+    background: rgb(255,255,255);
+    background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(224,224,224,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(224,224,224,1)));
+    background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(224,224,224,1) 100%);
+    background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(224,224,224,1) 100%);
+    background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(224,224,224,1) 100%);
+    color: #777;
+    text-shadow: 0 1px 0 white;
+}
+
+#wrapper {
+    background:#aaa;
+}
+
+.content {
+    background: white;
+}
+
+.scrollContainer li {
+    border-bottom:1px solid #ccc;
+    border-top:1px solid #fff;
+    background-color:#fafafa;
+}
+
+.scrollContainer li .listItemPreview {
+    color: #444;
+}
+
+.scrollContainer li a {
+    color: #333;
+}
+
+/* modal dialog */
+#modalDialog {
+    background: white;
+    border:2px solid #fff;
+    color:#fff;
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #7c9bc0), color-stop(2%, #416086), color-stop(100%, #293e56));
+    -webkit-border-radius:8px;
+    -webkit-box-shadow:-1px 2px 12px rgba(0, 0, 0, 0.91);
+    -webkit-transition: opacity 0.3s ease-in;
+}
+
+
+/* misc */
+.form-validation-error {
+    color: red;
+}

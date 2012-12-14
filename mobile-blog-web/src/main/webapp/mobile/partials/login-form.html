@@ -1,5 +1,5 @@
 <div ng-controller="LoginController">
-    <div id="alertDialog" alert-dialog error="error" message="error" ng-show="show"></div>
+    <div id="dialog" modal-dialog error="error" message="error" ng-show="show"></div>
 
 
     <div id="toolbar" ng-controller="ToolbarController">
@@ -15,7 +15,7 @@
 
     <div id="wrapper" class="scrollContainer" scroll-container>
         <div class="content">
-            <div class="contentInner">
+            <div class="inner innerPadding">
                 <form ng-submit="loginSubmit(user)">
                     <input type="text" id="inputUsername" class="input-block-level" placeholder="Username" ng-model="user.username">
                     <input type="password" id="inputPassword" class="input-block-level" placeholder="Password" ng-model="user.password">

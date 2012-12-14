@@ -31,12 +31,12 @@ angular.module('App', [
                  * Controllers: BlogPostListController
                  */
                 when('/', {
-                    templateUrl: 'partials/blog-post-list.html'
-//                    resolve: {
-//                        blogPosts: ['BlogPostService', function(BlogPostService) {
-//                            return BlogPostService.fetchBlogPosts();
-//                        }]
-//                    }
+                    templateUrl: 'partials/blog-post-list.html',
+                    resolve: {
+                        blogPosts: ['BlogPostService', function(BlogPostService) {
+                            return BlogPostService.fetchBlogPosts();
+                        }]
+                    }
                 }).
 
 
@@ -57,23 +57,23 @@ angular.module('App', [
                  * Controllers: BlogPostController, AddCommentController
                  */
                 when('/post/:blogPostId', {
-                    templateUrl: 'partials/blog-post.html'
-//                    resolve: {
-//                         blogPost: ['BlogPostService',
-//                             function($route, BlogPostService) {
-//                                 return BlogPostService.fetchBlogPost(
-//                                     $route.current.params.blogPostId
-//                                 );
-//                             }
-//                         ],
-//                         commentList: ['CommentService',
-//                             function($route, CommentService) {
-//                                return CommentService.fetchComments(
-//                                    $route.current.params.blogPostId
-//                                );
-//                             }
-//                         ]
-//                    }
+                    templateUrl: 'partials/blog-post.html',
+                    resolve: {
+                        blogPost: ['$route', 'BlogPostService', '$routeParams',
+                            function($route, BlogPostService, $routeParams) {
+                                return BlogPostService.fetchBlogPost(
+                                    $route.current.params.blogPostId
+                                );
+                            }
+                        ],
+                        commentList: ['$route', 'CommentService',
+                            function($route, CommentService) {
+                                return CommentService.fetchComments(
+                                    $route.current.params.blogPostId
+                                );
+                            }
+                        ]
+                    }
                 }).
 
 

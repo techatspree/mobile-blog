@@ -1,5 +1,5 @@
 
-<div ng-controller="LoginController">
+<div ng-controller="RegisterController">
     <div id="toolbar" ng-controller="ToolbarController">
         <header>
             <span class="headerInner" ng-bind-template="Register"></span>
@@ -12,19 +12,84 @@
 
     <div id="wrapper" class="scrollContainer" scroll-container>
         <div class="content">
-            <div class="contentInner">
-                <form ng-submit="registerSubmit(user)">
-                    <input type="text" id="inputUsername" class="input-block-level" placeholder="Username" ng-model="user.username">
-                    <input type="password" id="inputPassword" class="input-block-level" placeholder="Password" ng-model="user.password">
-                    <input type="text" id="inputFirstname" class="input-block-level" placeholder="Firstname" ng-model="user.firstname">
-                    <input type="text" id="inputSurname" class="input-block-level" placeholder="Surname" ng-model="user.surname">
-                    <input type="email" id="inputEmail" class="input-block-level" placeholder="Email" ng-model="user.email">
-                    <input type="text" id="inputPhone" class="input-block-level" placeholder="Phone" ng-model="user.phone">
+            <div class="innerPadding">
+                <form ng-submit="registerSubmit(user)" novalidate>
+                    <p>
+                        <input type="text"
+                               id="inputUsername"
+                               class="input-block-level"
+                               placeholder="Username"
+                               ng-model="user.username"
+                               required>
+
+                        <span class="form-validation-error"
+                              ng-show="error.username"
+                              ng-bind="error.username"></span>
+                    </p>
+
+                    <p>
+                        <input type="password"
+                               id="inputPassword"
+                               class="input-block-level"
+                               placeholder="Password"
+                               ng-model="user.password"
+                               required>
+
+                        <span class="form-validation-error"
+                              ng-show="error.password"
+                              ng-bind="error.password"></span>
+                    </p>
+
+                    <p>
+                        <input type="text"
+                               id="inputFirstname"
+                               class="input-block-level"
+                               placeholder="First Name"
+                               ng-model="user.firstname"
+                               required>
+
+                        <span class="form-validation-error"
+                              ng-show="error.firstname"
+                              ng-bind="error.firstname"></span>
+                    </p>
+
+                    <p>
+                        <input type="text"
+                               id="inputSurname"
+                               class="input-block-level"
+                               placeholder="Surname"
+                               ng-model="user.surname"
+                               required>
+
+                        <span class="form-validation-error"
+                              ng-show="error.surname"
+                              ng-bind="error.surname"></span>
+                    </p>
+
+                    <p>
+                        <input type="text"
+                               id="inputEmail"
+                               class="input-block-level"
+                               placeholder="Email"
+                               ng-model="user.email"
+                               required>
+
+                        <span class="form-validation-error"
+                              ng-show="error.email"
+                              ng-bind="error.email"></span>
+                    </p>
+
+                    <p>
+                        <input type="text"
+                               id="inputPhone"
+                               class="input-block-level"
+                               placeholder="Phone"
+                               ng-model="user.phone">
+                    </p>
 
                     <button type="submit" class="btn btn-large btn-block">Register</button>
                 </form>
             </div>
-        </div>
         </div>
     </div>
 </div>

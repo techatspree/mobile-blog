@@ -18,12 +18,13 @@ angular.module('AuthenticationControllers', ['UserServices']).
             $scope.user;
 
             $scope.loginSubmit = function(credentials) {
-                credentials = (credentials) ? $.param(credentials) : undefined;
+                credentials = (credentials) ? $.param(credentials) : null;
 
                 UserService.login(credentials).
                     success(function() {
-                        $scope.user = undefined;
-                        $location.url('/');
+                        $scope.user = null;
+//                        $location.url('/');
+                        history.back();
                     }).
                     error(function() {
                         $scope.error = {};

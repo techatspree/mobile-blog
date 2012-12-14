@@ -7,19 +7,22 @@
 
         <div ng-switch="userService.isLoggedIn()">
             <button class="btn btn-left" ng-click="onBackBtnTap()">Back</button>
-
             <!-- user is not logged-in -->
-            <button class="btn btn-right" ng-click="routeTo('/login')" ng-switch-when="false">Login</button>
+            <div ng-switch-when="false">
+                <button class="btn btn-right" ng-click="routeTo('/login')">Login</button>
+            </div>
 
             <!-- user is logged-in -->
-            <button class="btn btn-left" ng-click="onLogoutBtnTap()" ng-switch-when="true">Logout</button>
-            <button class="btn btn-right" ng-click="routeTo('/post/comment/add')" ng-switch-when="true">Add comment</button>
+            <div ng-switch-when="true">
+                <button class="btn btn-left" ng-click="onLogoutBtnTap()">Logout</button>
+                <button class="btn btn-right" ng-click="routeTo('/post/' + blogPost.id + '/comment/add')">Add comment</button>
+            </div>
         </div>
     </div>
 
     <div id="wrapper" scroll-container>
         <div class="content">
-            <div class="contentInner">
+            <div class="inner innerPadding">
                 <div id="blogPost">
                     <h2>{{ blogPost.id }} {{ blogPost.title }}</h2>
                     <h5>

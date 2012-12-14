@@ -18,12 +18,13 @@ angular.module('RegistrationControllers', ['UserServices']).
             $scope.user;
 
             $scope.registerSubmit = function(userData) {
-                userData = (userData) ? $.param(userData) : undefined;
+                userData = (userData) ? $.param(userData) : null;
 
                 UserService.register(userData).
                     success(function() {
-                        $scope.user = undefined;
-                        $location.url('/login');
+                        $scope.user = null;
+//                        $location.url('/login');
+                        history.back();
                     }).
                     error(function(data) {
                         $scope.error = data;
